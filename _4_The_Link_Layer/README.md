@@ -1,6 +1,9 @@
-Here we describe the basic functionality we expect the Link layer to perform. 
+# The Link Layer
+###### This README is still being written.
 
 ## Interface to Network layer
+
+Here we describe the functionality the link layer is expected to provide to the network layer
 
 - **Creation of entangled pairs between adjacent nodes** : The link layer has the information of the nodes it is directly connected to and is tasked with the creation of entangled pairs between adjacent nodes in the network. The transport layer can specify the end-nodes for creating a link between the adjacent nodes.
 
@@ -8,7 +11,33 @@ Here we describe the basic functionality we expect the Link layer to perform.
 
 - **Qubit decoherence** : The network layer protocols need information of whether a pre-existing pair of qubits has decohered beyond what is useful for us. This depends a lot on the fidelity and storage conditions determined at the physical layer
 
-## Extra resources for reference
+## The `Repeater` and `Endnode` objects
+
+Every instance of `Repeater` contains an instance of `RepeaterHardware`:
+
+```
+class Repeater(object):
+    def __init__(self, ...):
+        ...
+        self.hardware = RepeaterHardware(self)
+        ...
+```
+
+Roughly speaking, the `RepeaterHardware` is the body of a repeater and the `Repeater` is its brain.
+
+The `RepeaterHardware` object worries about which gates to apply, how to apply them to the kind of qubits on board, etc. The `Repeater` object worries about implementing link layer protocols, etc.
+
+Similarly for the `Endnode` object.
+
+## The `Cable` object
+
+
+
+## The `Link` object
+
+-----
+
+## Possibly useful resources:
 
 https://datatracker.ietf.org/doc/draft-dahlberg-ll-quantum/
 
