@@ -12,7 +12,7 @@ The interface the network layer expects from the link layer is:
 
 ## Interface to Transport layer
 
-We currently expect the link layer to connect any two nodes in the network provided the minimum fidelity to be achieved in the least time possible.
+We currently expect the network layer to connect any two nodes in the network provided the minimum fidelity to be achieved in the least time possible.
 
 ## Information maintained at Network layer
 
@@ -34,9 +34,7 @@ Steps 2 and 3 above combined constitute the *Prepare and Swap* protocol for enta
 
 ## Path Discovery
 
-The papers [1] and [2] offer different ways of solving the path discovery problem taking different parts into consideration. [1] works on reducing the latency assuming different link creation times using a LP formulation. On the other hand, [2] works on reducing the latency assuming similar link creation times throughout but through exploring the use of virtual graphs. [2] also focusses on local gready algorithms rather than global optimisation based algorithms in [1], which makes more sense in a practical scenario.
-
-What is common in the two papers is removing the consideration of fidelity by not considering nodes which are further apart physically than the threshold limit obtained through the known fidelity of link creation and entanglement swapping success probability.
+The papers [1] and [2] talk about different ways of solving the path discovery problem taking different parts into consideration. [1] assumes different link creation times and [2] explores the use of virtual graphs to reduce latency. These are discussed in detail in their respective directories in the Protocols\ directory.
 
 We would ideally like to consider a mix of both the papers' suggestions. We should also take into consideration if there is a difference in link creation time and the inverse of number of links created per second, that is can two adjacent nodes be in the process of generating multiple links in parallel? If not we might also consider low fidelity and low latency paths on which multiple links are created which are later distilled.
 
